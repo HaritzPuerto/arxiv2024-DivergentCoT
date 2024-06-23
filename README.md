@@ -43,7 +43,7 @@ $ python training_script.py \
     --train_path data/dcot_collection/cot9_dataset.json \
     --epochs 3\
     --training_batch_size 4 \
-    --ccot \
+    --dcot \
     --seed 0
 ```
 

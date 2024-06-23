@@ -10,6 +10,7 @@ wget https://storage.googleapis.com/gresearch/BoardgameQA/BoardgameQA.zip -O Boa
 unzip BoardgameQA.zip
 mv BoardgameQA/* boardgameqa
 rm -r BoardgameQA
+rm BoardgameQA.zip
 
 # ConditionalQA
 cd conditionalqa
