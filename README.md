@@ -26,9 +26,9 @@ pip install -r requirements.txt
 ```
 
 2. Download the training data
-> Link to the input data https://figshare.com/s/995e234cdfa5092749ab
-- This zip files includes training, dev, test sets and our **DCoT dataset.**
-- Create a folder called `data` and download the contents of this link in that folder
+```bash
+sh download_eva_data.sh
+```
 ## Usage
 
 
