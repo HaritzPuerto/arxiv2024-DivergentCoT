@@ -8,6 +8,8 @@ wget https://github.com/google-deepmind/AQuA/blob/master/test.json -O test.json
 cd ..
 wget https://storage.googleapis.com/gresearch/BoardgameQA/BoardgameQA.zip -O BoardgameQA.zip
 unzip BoardgameQA.zip
+mv BoardgameQA/* boardgameqa
+rm -r BoardgameQA
 
 # ConditionalQA
 cd conditionalqa
@@ -24,3 +26,4 @@ cd ../hotpotqa
 wget http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_train_v1.1.json -O hotpot_train_v1.1.json
 wget http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json -O hotpot_dev_distractor_v1.json
 
+cd ..
