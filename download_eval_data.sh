@@ -13,10 +13,10 @@ rm -r BoardgameQA
 
 # ConditionalQA
 cd conditionalqa
-wget https://github.com/haitian-sun/ConditionalQA/blob/master/v1_0/train.json -O train.json
-wget https://github.com/haitian-sun/ConditionalQA/blob/master/v1_0/dev.json -O dev.json
-wget https://github.com/haitian-sun/ConditionalQA/blob/master/v1_0/test_no_answer.json -O test_no_answer.json 
-wget https://github.com/haitian-sun/ConditionalQA/blob/master/v1_0/documents.json -O documents.json
+wget https://raw.githubusercontent.com/haitian-sun/ConditionalQA/master/v1_0/train.json -O train.json
+wget https://raw.githubusercontent.com/haitian-sun/ConditionalQA/master/v1_0/dev.json -O dev.json
+wget https://raw.githubusercontent.com/haitian-sun/ConditionalQA/master/v1_0/test_no_answer.json -O test_no_answer.json 
+wget https://raw.githubusercontent.com/haitian-sun/ConditionalQA/master/v1_0/documents.json -O documents.json
 
 # you need to contact the authors of ConditionalQA to get the test set answers or ask them to evaluate your responses
 
