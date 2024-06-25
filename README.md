@@ -9,8 +9,46 @@ We present a novel method of further improving performance by requiring models t
 We generate a DCoT dataset where a question is answered by a series of alternative (and correct) chains of thought. Importantly, all these CoTs are part of the same label, thus, forcing the LLM to learn how to generate multiple CoTs in a single inference step.
 We find that instruction tuning on DCoT datasets boosts the performance of LLMs of all sizes (from 1.3B to 70B). These performance gains stem from models generating multiple divergent reasoning chains in a single inference step, indicative of the enabling of self-correction in language models.
 
-
 ![divergent CoT description](./assets/intro.png)
+
+
+## Running the Models
+We provide the best checkpoints on Hugging Face for easy exploration.
+
+You can run them simply with the following code:
+
+```
+from peft import LoraConfig, PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+
+# select the model you want to run
+base_model_path = "meta-llama/Llama-2-7b-hf"
+peft_model_id = "haritzpuerto/LLaMA2-7B-dcot"
+
+# load the model and tokenizer
+model = AutoModelForCausalLM.from_pretrained(
+            base_model_path,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+        )
+# the model is loaded in fp16, feel free to use 8bit if needed
+model.load_adapter(peft_model_id)
+
+tokenizer = AutoTokenizer.from_pretrained(base_model_path)
+
+# prompt the model
+prompt = "[Question] Juan and LaKeisha roll a few objects down a ramp. They want to see which object rolls the farthest. What should they do so they can repeat their investigation?\n[Options] A) Put the objects in groups. B) Change the height of the ramp. C) Choose different objects to roll. D) Record the details of the investigation.\n[Number of answers] 2\n[Answer 1] "
+
+inputs = tokenizer(prompt, return_tensors="pt")
+output = model.generate(**inputs.to("cuda"), max_length=1024)
+print(tokenizer.decode(output[0]))
+```
+
+You can see the models in this Hugging Face collection: https://huggingface.co/collections/haritzpuerto/dcot-667ade6bb3c1b9aac8267b71
+
+
+## Reproducing the Experiments
 
 
 > The output data is available at https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4266
