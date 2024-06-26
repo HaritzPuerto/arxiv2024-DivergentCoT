@@ -45,7 +45,35 @@ output = model.generate(**inputs.to("cuda"), max_length=1024)
 print(tokenizer.decode(output[0]))
 ```
 
-You can see the models in this Hugging Face collection: https://huggingface.co/collections/haritzpuerto/dcot-667ade6bb3c1b9aac8267b71
+### Prompt Template
+```
+[Question] {question} [Context] {document} [Options] {answer_options} [Number of answers] {k}
+```
+Note, that not all commands (text in brackets) are mandatory. `[Context]` and `[Options]` are optional. 
+- `[Context]` refers to a paragraph that contains the answer to a question (for span-extraction QA).
+- `[Options]` refers to a list of candidate answers (for multiple-choice QA). The format is `A) {answer option 1} B) {answer option 2}, ...`
+
+The minimal template is
+
+```
+[Question] {question} [Number of answers] {k}
+```
+
+The inclusion of context and options depends on your taks.
+
+> You can see the models in this Hugging Face collection: https://huggingface.co/collections/haritzpuerto/dcot-667ade6bb3c1b9aac8267b71
+
+### Response format
+You should expect the model returning the following type of text
+
+```
+[Answer 1]CoT_1
+[Answer 2]CoT_2
+...
+[Final answer] answer
+```
+
+You should get as many answers as requested with the command `[Number of answers] {k}` 
 
 
 ## Reproducing the Experiments
