@@ -83,7 +83,7 @@ You should get as many answers as requested with the command `[Number of answers
 
 - This data includes prompts, model responses, post-processes responses, and results.
 
-## Getting Started
+### Getting Started
 1. Prepare a virtual environment:
 ```bash
 conda create -n dcot python=3.10
@@ -95,7 +95,6 @@ pip install -r requirements.txt
 ```bash
 sh download_eva_data.sh
 ```
-## Usage
 
 
 ### Training
@@ -123,7 +122,7 @@ $ python evaluation.py \
     --max_cots 4 \
 ```
 
-### Remarks on Phi 1.5 and 2
+#### Remarks on Phi 1.5 and 2
 vLLM is not compatible with Phi 1.5 and Phi 2 with lora. Therefore, to evaluate with lora you need to merge the lora weights on the base model first. To do this, we provide `merge_weights.py`. You can run the evaluation as follows
 
 ```bash
@@ -142,7 +141,7 @@ $ python evaluation.py \
     --max_cots 4 \
 ```
 
-# Model Checkpoints
+### Model Checkpoints
 You can download the model checkpoints for CoT and DCoT in the following links:
 - [Phi 1.5](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4270)
 - [Phi 2](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4269)
@@ -151,7 +150,7 @@ You can download the model checkpoints for CoT and DCoT in the following links:
 - [LLaMA 13B-Chat](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4272)
 - [LLaMA 70B](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4271)
 
-# Output Inspection
+## Output Inspection
 You can see some output samples manually analyzed in `dcot_samples.json`
 
 
@@ -177,3 +176,11 @@ If you find our work useful, please it using the following citation:
 ## Disclaimer
 
 > This repository contains experimental software and is published for the sole purpose of giving additional background details on the respective publication. 
+
+✉️ Contact person: Haritz Puerto, haritz.puerto@tu-darmstadt.de
+
+https://www.ukp.tu-darmstadt.de/
+
+https://www.tu-darmstadt.de/
+
+Don't hesitate to send us an e-mail or report an issue if something is broken (and it shouldn't be) or if you have further questions.
